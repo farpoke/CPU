@@ -1,0 +1,92 @@
+\documentclass[a4paper]{article}
+
+% Be TeX att använda korrekt fontkodning.
+\usepackage[T1]{fontenc}
+
+% Lite mindre marginaler, tack.
+\usepackage[margin=3cm]{geometry}
+
+% Hjälpsam mellanrumsdefinition:
+\usepackage{xspace}
+
+% \countparagraph påbörjar automatisk numrering av paragrafer i sektionen.
+\newcommand\countparagraphs{%
+	\everypar{%
+		\addtocounter{paragraph}{1}%
+		\hspace{-4em}\makebox[3em][r]{\bfseries%
+			\arabic{section}\textsection\arabic{paragraph}%
+		}\hspace{1em}%
+	}%
+}
+
+% Be TeX att återställa paragrafräknaren i början av varje sektion.
+\makeatletter
+\@addtoreset{paragraph}{section}
+\makeatother
+
+% \countedsection påbörjar en ny sektion med numrerade paragrafer.
+\newcommand\countedsection[1]{%
+	\vspace{1em}\section{#1}\vspace{-1em}%
+	\countparagraphs%
+}
+
+% Vi vill ha tomrad istället för indentation för att separera paragrafer.
+\setlength{\parindent}{0em}
+\setlength{\parskip}{1em}
+
+% En hjälpdefinition för att slippa upprepningar av namnet.
+\def\CPU{Chalmers Programmeraruppslutning\xspace}
+
+% And.... begin!
+\begin{document}
+
+% Definera en egen minimalistisk titelsektion.
+\begin{center}
+	{\Huge Utkast till stadgar för} \\[0.5em]
+	{\Huge \CPU} \\[1em]
+	{Revision 1, 2012-04-10} \\
+	{\copyright Anton Mårtensson, 2012}
+\end{center}
+
+% De faktiskta stadgarna:
+
+\countedsection{Beskrivning av föreningen}
+
+\emph{Namn:} Föreningens namn är ``\CPU''.
+
+Föreningens förkortade namn är ``CPU''.
+
+\emph{Syfte:} \CPU{s} syfte är att medlemmarna skall ha roligt med programmering.
+
+\emph{Ort:} \CPU existerar på, i och kring Chalmers Tekniska Högskola, Göteborg.
+
+\emph{Föreningstyp:} \CPU är en ideell förening.
+
+\countedsection{Verksamhet}
+
+Verksamheten...
+
+\countedsection{Medlemskap}
+
+\emph{Potentiell medlem:} Medlem i \CPU kan den vara som är medlem i en av Chalmers sektioner, har varit detta eller är på annat sätt kopplad till någon av Chalmers sektioner (exempelvis en student från annan ort som för tillfället studerar på någon av Chalmers sektioner).
+
+\emph{Aktiv medlem:} För att bli medlem i \CPU krävs att den potentiella medlemmen registrerat sig på \CPU{s} internetforum samt deltagit i en av \CPU arrangerad aktivitet. Den nya medlemmen är en aktiv medlem.
+
+\emph{Passiv medlem:} En aktiv medlem som ej deltagit i en av \CPU arrangerad aktivitet under föregående eller nuvarande år övergår till att vara en passiv medlem.
+
+En passiv medlem som deltar i en av \CPU arrangerad aktivitet övergår omedelbart till att vara en aktiv medlem.
+
+\emph{Utgång ur CPU:} En passiv medlem som varit passiv under ett helt år slutar vara en medlem i \CPU. Denne medlem har rätt att på normalt sett bli en medlem i \CPU.
+
+\emph{Uteslutning:} Ett föreningsmöte med beslutsrätt har möjlighet att genom omröstning utesluta en specifik medlem.
+
+\emph{Uteslutningsmotion:} För att omröstning om uteslutning skall få ske måste styrelsen efter senaste årsmöte ha mottagit minst tre motioner från olika aktiva medlemmar om att hålla en omröstning om uteslutning av en och samma specifika medlem.
+
+Då styrelsen mottagit tillräckliga motioner för att hålla en omröstning om uteslutning är styrelsen skyldig att så snart som är praktiskt bestämma om omröstning skall hållas och hur.
+
+\emph{Uteslutning av styrelse:} Om medlemmen som uteslutningen rör är sittande i styrelsen måste omröstning hållas vid nästa årsmöte.
+
+\emph{Grund för uteslutning:} I annat fall skall behovet av omröstning för uteslutning bedömas utefter huruvida medlemmens fortsatta medlemskap skadar \CPU eller dess övriga medlemmar.
+
+% And... we're done.
+\end{document}
