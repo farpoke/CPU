@@ -25,19 +25,19 @@
 \newcommand\countparagraphs{%
 	\everypar{%
 		\@nobreakfalse%
-		\addtocounter{paragraph}{1}%
+		\refstepcounter{paragraph}%
 		\hspace{-4em}%
-		\makebox[3em][r]{\small\theparagraph}%
+		\makebox[3em][r]{\small\textparagraph\,\arabic{paragraph}}%
 		\hspace{1em}%
 		\fullCPUtrue
 	}%
 }
 \renewcommand\thesection{\textsection\,\arabic{section}}
-\renewcommand\theparagraph{\textparagraph\,\arabic{paragraph}}
+\renewcommand\theparagraph{\thesection\,\textparagraph\,\arabic{paragraph}}
 \@addtoreset{paragraph}{section}
 \makeatother
 
-% Definera om \section till att påbörja numrerade paragrafer och ändra mellanrummen mellan sektioner något.
+% Definera om \section till att påbörja numrerade paragrafer.
 \let\oldsection\section
 \makeatletter
 \renewcommand\section[1]{%
@@ -48,6 +48,14 @@
 }
 \makeatother
 
+% Definera ett kommando \comment som skriver ut en kommentar till en separat fil som sedan kan inkluderas i ett annat dokument med kommentarer etc.
+\newwrite\commentfile
+\immediate\openout\commentfile=\jobname.comments
+\newcommand\comment[2]{%
+	\label{#1}%
+	\immediate\write\commentfile{\detokenize{\paragraph{\ref{S-#1} #1} #2}}%
+}
+
 % Vi vill ha tomrad istället för indentation för att separera paragrafer.
 \setlength{\parindent}{0em}
 \setlength{\parskip}{1em}
@@ -55,11 +63,11 @@
 % And.... begin!
 \begin{document}
 
-% Definera en egen minimalistisk titelsektion.
+% Definera en egen liten titelsektion.
 \begin{center}
 	{\Huge Utkast till stadgar för} \\[0.5em]
 	{\Huge Chalmers Programmeraruppslutning} \\[1em]
-	{Revision 1, 2012-04-10} \\
+	{Revision 1} \\
 	{\copyright Anton Mårtensson, 2012}
 \end{center}
 
@@ -95,7 +103,9 @@ Verksamhets- och räkenskapsår gäller tiden från 1 januari till 31 december.
 
 \section{Medlemskap}
 
-\emph{Potentiell medlem:} Medlem i \CPU kan den vara som håller med om föreningens syfte samt (a)~är medlem i Chalmers studentkår, (b)~har varit detta eller (c)~är på annat sätt kopplad till Chalmers eller någon av Chalmers sektioner (exempelvis en student från annan ort som för tillfället studerar på någon av Chalmers sektioner).
+\emph{Potentiell medlem:} Medlem i \CPU kan den vara som vill verka för föreningens målsättning samt (a)~är medlem i Chalmers studentkår, (b)~har varit detta eller (c)~är på annat sätt kopplad till Chalmers eller någon av Chalmers sektioner (exempelvis en student från annan ort som för tillfället studerar på någon av Chalmers sektioner).
+
+\comment{Potentiell medlem}{Punkt (c) är med avsikt vagt beskriven för att tillåta lite spelrum.}
 
 \emph{Aktiv medlem:} För att bli medlem i \CPU krävs att den potentiella medlemmen registrerat sig på \CPU{s} internetforum samt deltagit i en CPU-aktivitet. Den nya medlemmen är en aktiv medlem.
 
@@ -105,17 +115,19 @@ En passiv medlem som deltar i en CPU-aktivitet övergår omedelbart till att var
 
 \emph{Utgång ur CPU:} En passiv medlem som varit sådan under ett helt år slutar vara en medlem i \CPU. En person som utgått på detta sätt har rätt att återigen bli en medlem på normalt sätt.
 
-\emph{Uteslutning:} En medlem som (a)~missköter sig inom \CPU, (b)~skadar \CPU eller (c)~skadar \CPU{s} övriga medlemmar, kan bli utesluten ur \CPU. Årsmötet bestämmer om någon skall bli utesluten.
+\emph{Uteslutning:} En medlem som (a)~missbrukar sin position inom \CPU, (b)~skadar \CPU eller (c)~skadar \CPU{s} övriga medlemmar, kan bli utesluten ur \CPU. Årsmötet bestämmer om någon skall bli utesluten.
 
-\emph{Tillsvidareuteslutning:} Om det fortsatta medlemskapet av en medlem som riskerar uteslutning aktivt skadar \CPU eller \CPU{s} övriga medlemmar kan styrelsen besluta att tillfälligt utesluta denne medlem, som längst fram till årsmöte.
+\comment{Uteslutning}{Uteslutning är en mycket allvarlig handling och bör endast genomföras i allvarliga fall.}
 
-En utesluten medlem har ej rätt att på nytt bli medlem. Årsmötet har rätt att bestämma att en utesluten medlem skall återgå till att vara en vanlig ickemedlem, varvid denne återigen kan bli medlem på normalt sätt.
+\emph{Tillsvidareuteslutning:} Om det fortsatta medlemskapet av en medlem som riskerar uteslutning anses utgöra en risk kan styrelsen besluta att tillfälligt utesluta denne medlem, som längst fram till årsmöte.
 
-Styrelsen är skyldig att inte hålla en medlem utesluten mer än nödvändigt.
+\comment{Tillsvidareuteslutning}{Styrelsen väntas vara rättvis och på intet sätt hålla en medlem utesluten efter att denne inte längre bedömms utgöra en risk.}
+
+En utesluten medlem har ej rätt att på nytt bli medlem. Efterföljande årsmöten har rätt att bestämma att en utesluten medlem skall återgå till att vara en vanlig ickemedlem, varvid denne återigen kan bli medlem på normalt sätt.
 
 \section{Styrelsen}
 
-Styrelsen ansvarar för den löpande verksamheten och för verkställandet av årsmötets beslut och består av ordförande samt tre till åtta ledarmoter.
+Styrelsen ansvarar för den löpande verksamheten och för verkställandet av årsmötets beslut och består av ordförande samt tre till åtta ledamöter.
 
 \emph{Val av styrelse:} Styrelsen väljs vid det ordinarie årsmötet.
 
@@ -147,13 +159,15 @@ Tid och plats för årsmötet bestäms av styrelsen, som också ansvarar för at
 
 \section{Stadgeändring}
 
-Dessa stadgar kan ändras genom att ett förslag till ändring röstas igenom på ordinarie årsmöte. För att en ändring skall verkställas krävs bifall från minst två tredjedelar av rösterna.
+Dessa stadgar kan ändras genom att ett förslag till ändring röstas igenom vid årsmöte. För att en ändring skall verkställas krävs bifall från minst två tredjedelar av rösterna.
 
 För att omröstning om stadgeändring skall få ske måste kallelsen ha inkluderat denna punkt och den föreslagna ändringen måste ha funnits tillgänglig för alla medlemmar från dess att kallelse gått ut.
 
 \section{Upplösning}
 
 Upplösning av \CPU kan bara ske genom att beslut om detta tas på ett ordinarie årsmöte då denna punkt inkluderats i kallelsen. För upplösning krävs minst två tredjedels bifall vid omröstning.
+
+Vid upplösning skall \CPU{s} tillgångar doneras till likasinnade föreningar eller organisationer. Vilka föreningar eller organisationer detta är samt hur tillgångarna skall fördelas mellan dessa bestäms på mötet.
 
 % And... we're done.
 \end{document}

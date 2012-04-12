@@ -1,0 +1,30 @@
+\documentclass[a4paper]{article}
+
+% Be TeX att använda korrekt fontkodning.
+\usepackage[T1]{fontenc}
+
+% Lite mindre marginaler, tack.
+\usepackage[margin=3cm]{geometry}
+
+% Vi vill kunna referera till stadgarna och använder xr för detta.
+\usepackage{xr}
+\externaldocument[S-]{Stadgar}
+
+% Vi vill ha tomrad istället för indentation för att separera paragrafer.
+\setlength{\parindent}{0em}
+\setlength{\parskip}{1em}
+
+% And.... begin!
+\begin{document}
+
+% Definera en egen liten titelsektion.
+\begin{center}
+	{\Huge Utkast till styrdokument för} \\[0.5em]
+	{\Huge Chalmers Programmeraruppslutning} \\[1em]
+	{Kopplat till "Utkast till stadgar för Chalmers Programmeraruppslutning", revision 1} \\[1em]
+	{Revision 1} \\
+	{\copyright Anton Mårtensson, 2012}
+\end{center}
+
+% And... we're done.
+\end{document}
