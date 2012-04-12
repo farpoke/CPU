@@ -6,9 +6,15 @@
 % Lite mindre marginaler, tack.
 \usepackage[margin=3cm]{geometry}
 
+% Hjälpsam mellanrumsdefinition:
+\usepackage{xspace}
+
 % Vi vill kunna referera till stadgarna och använder xr för detta.
 \usepackage{xr}
 \externaldocument[S-]{Stadgar}
+
+% Definera ett litet hjälpmakro för hänvisning till CPU:s namn.
+\def\CPU{CPU\xspace}
 
 % Vi vill ha tomrad istället för indentation för att separera paragrafer.
 \setlength{\parindent}{0em}
@@ -25,6 +31,13 @@
 	{Revision 1} \\
 	{\copyright Anton Mårtensson, 2012}
 \end{center}
+
+Detta dokument utgör \CPU{s} styrdokument och reglerar tillsammans med stadgarna \CPU{s} verksamhet. Stadgarna och styrdokumentet skall anses vara en enhet och inget av dessa dokument skall bedömas utan att ta hänsyn till det andra dokumentet.
+
+\section*{Kommentarer till stadgarna}
+% Inkludera kommentarer från stadgedokumentet.
+\def\commentheader#1{\textbf{#1}\\}
+\input{Stadgar.comments}
 
 % And... we're done.
 \end{document}

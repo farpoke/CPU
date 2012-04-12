@@ -53,12 +53,15 @@
 \immediate\openout\commentfile=\jobname.comments
 \newcommand\comment[2]{%
 	\label{#1}%
-	\immediate\write\commentfile{\detokenize{\paragraph{\ref{S-#1} #1} #2}}%
+	\immediate\write\commentfile{\detokenize{\par\commentheader{\ref{S-#1} #1} #2}}%
 }
 
 % Vi vill ha tomrad istället för indentation för att separera paragrafer.
 \setlength{\parindent}{0em}
 \setlength{\parskip}{1em}
+
+\clubpenalty=10000
+\widowpenalty=10000
 
 % And.... begin!
 \begin{document}
@@ -66,7 +69,7 @@
 % Definera en egen liten titelsektion.
 \begin{center}
 	{\Huge Utkast till stadgar för} \\[0.5em]
-	{\Huge Chalmers Programmeraruppslutning} \\[1em]
+	{\Huge Chalmers Programmerar\-uppslutning} \\[1em]
 	{Revision 1} \\
 	{\copyright Anton Mårtensson, 2012}
 \end{center}
@@ -103,11 +106,13 @@ Verksamhets- och räkenskapsår gäller tiden från 1 januari till 31 december.
 
 \section{Medlemskap}
 
-\emph{Potentiell medlem:} Medlem i \CPU kan den vara som vill verka för föreningens målsättning samt (a)~är medlem i Chalmers studentkår, (b)~har varit detta eller (c)~är på annat sätt kopplad till Chalmers eller någon av Chalmers sektioner (exempelvis en student från annan ort som för tillfället studerar på någon av Chalmers sektioner).
+\emph{Potentiell medlem:} Medlem i \CPU kan den vara som vill verka för föreningens målsättning samt (a)~är medlem i Chalmers studentkår, (b)~har varit detta eller (c)~är på annat sätt kopplad till Chalmers eller någon av Chalmers sektioner.
 
-\comment{Potentiell medlem}{Punkt (c) är med avsikt vagt beskriven för att tillåta lite spelrum.}
+\comment{Potentiell medlem}{Punkt (c) är med avsikt vagt beskriven för att tillåta lite spelrum. Ett exempel är en student från annan ort som för tillfället studerar på någon av Chalmers sektioner.}
 
 \emph{Aktiv medlem:} För att bli medlem i \CPU krävs att den potentiella medlemmen registrerat sig på \CPU{s} internetforum samt deltagit i en CPU-aktivitet. Den nya medlemmen är en aktiv medlem.
+
+\emph{CPU-aktivitet:} En ``CPU-aktivitet'' är en aktivitet, sammankomst eller händelse som officiellt arrangerats av eller i sammarbete med \CPU.
 
 \emph{Passiv medlem:} En aktiv medlem som ej deltagit i en CPU-aktivitet under föregående eller nuvarande år övergår till att vara en passiv medlem.
 
@@ -121,7 +126,7 @@ En passiv medlem som deltar i en CPU-aktivitet övergår omedelbart till att var
 
 \emph{Tillsvidareuteslutning:} Om det fortsatta medlemskapet av en medlem som riskerar uteslutning anses utgöra en risk kan styrelsen besluta att tillfälligt utesluta denne medlem, som längst fram till årsmöte.
 
-\comment{Tillsvidareuteslutning}{Styrelsen väntas vara rättvis och på intet sätt hålla en medlem utesluten efter att denne inte längre bedömms utgöra en risk.}
+\comment{Tillsvidareuteslutning}{Styrelsen väntas vara rättvis och på intet sätt hålla en medlem utesluten efter att denne inte längre bedöms utgöra en risk. Styrelsen väntas också vara opartisk och om den aktuella medlemmen är sittande i styrelsen faller det på övriga styrelsen att bedöma situationen som om denne var en vanlig medlem.}
 
 En utesluten medlem har ej rätt att på nytt bli medlem. Efterföljande årsmöten har rätt att bestämma att en utesluten medlem skall återgå till att vara en vanlig ickemedlem, varvid denne återigen kan bli medlem på normalt sätt.
 
@@ -133,9 +138,11 @@ Styrelsen ansvarar för den löpande verksamheten och för verkställandet av å
 
 \emph{Styrelsemöte:} Styrelsen ska ha möte minst två gånger per verksamhetsår. Styrelsen får ta beslut på styrelsemötet om kallelse gått ut till hela styrelsen inom rimlig tid och minst halva styrelsen är närvarande.
 
+\comment{Styrelsemöte}{Föreslagsvis är ``rimlig tid'' åtminstone en dag eller två, men om så mycket tid ej behövs krävs inte detta av stadgarna.}
+
 \section{Årsmöte}
 
-Årsmötet är \CPU{s} högsta beslutande möte och skall hållas en gång under läsperiod 3 varje år per Chalmers kalender. Årsmötet är en CPU-aktivitet.
+Årsmötet är \CPU{s} högsta beslutande möte och skall hållas en gång under läsperiod 3 varje år per Chalmers kalender.
 
 \emph{Kallelse:} För att beslut skall kunna tas på årsmötet måste en kallelse skickats ut minst 14 dagar innan mötet börjar. Kallelse skall skickas till alla medlemmar eller finnas så att alla kan ta del av den.
 
@@ -143,31 +150,51 @@ Tid och plats för årsmötet bestäms av styrelsen, som också ansvarar för at
 
 \emph{Möteshandlingar:} Alla möteshandlingar skall finnas tillgängliga för alla närvarande innan mötet börjar.
 
-\emph{Rösträtt:} Alla aktiva medlemmar har rösträtt. Varje medlem har endast en röst och denna kan inte överlåtas till någon annan.
+\emph{Rösträtt:} Alla närvarande medlemmar har rösträtt. Varje medlem har endast en röst och denna kan inte överlåtas till någon annan.
 
 \emph{Beslutsrätt:} För att en omröstning skall vara giltig krävs att minst en person från styrelsen närvarar och vinnande förslag måste ha minst fem röster.
 
-\emph{Omröstning:} Vid omröstning vinner det förslag med flest bifall. I vissa fall finns det dock i stadgarna ytterligare krav för att det vinnande förslaget skall verkställas.
+\emph{Omröstning:} Vid omröstning vinner det förslag med flest bifall. I vissa fall finns det dock i stadgorna ytterligare krav för att det vinnande förslaget skall verkställas.
 
-\emph{Yttranderätt:} Vid årsmöte har alla aktiva medlemmar rätt att yttra sig samt lägga förslag.
+\emph{Yttranderätt:} Vid årsmöte har alla närvarande medlemmar rätt att yttra sig samt lägga förslag.
 
 \emph{Extra årsmöte:} Ett extra årsmöte sammankallas om (a)~styrelsen begär det eller (b)~minst en fjärdedel av de aktiva medlemmarna skriftligen begär det. Alla regler för vanligt årsmöte gäller även för extra årsmöten.
 
+\comment{Extra årsmöte}{Om extra årsmöte sammankallas på begäran av \CPU{s} medlemmar måste årsmötet ta upp de frågor som förorsakat denna begäran.}
+
 \section{Revision}
 
-Årsmötet ska välja en revisor och en revisorsuppleant. Dessa får inte sitta i styrelsen.
+Vid det ordinarie årsmötet ska välja en revisor och en revisorsuppleant. Dessa får inte sitta i styrelsen.
 
-\section{Stadgeändring}
+Revisorn har under verksamhetsåret i uppgift att övervaka styrelsen och \CPU{s} verksamhet för att bedöma huruvida vid årsmöte tagna beslut har verkställts.
 
-Dessa stadgar kan ändras genom att ett förslag till ändring röstas igenom vid årsmöte. För att en ändring skall verkställas krävs bifall från minst två tredjedelar av rösterna.
+Vid ordinarie årsmötet skall revisorn för det föregående verksamhetsåret presentera sin revisionsberättelse.
+
+\section{Stadgar och styrdokument}
+
+Detta dokument utgör \CPU{s} stadgar och reglerar tillsammans med styrdokumentet \CPU{s} verksamhet. Stadgarna och styrdokumentet skall anses vara en enhet och inget av dessa dokument skall bedömas utan att ta hänsyn till det andra dokumentet.
+
+\emph{Offentlighet:} Stadgar och styrdokument skall finnas officiellt tillgängliga på lämpligt sätt. Vid ändring av någondera skall den nya versionen finnas tillgänglig senast en vecka efter ändring.
+
+\comment{Offentlighet}{Exempelvis via en länk till dessa två dokument på \CPU{s} hemsida.}
+
+\emph{Stadgeändring:} Dessa stadgar kan ändras genom att ett förslag till ändring röstas igenom vid årsmöte. För att en ändring skall verkställas krävs bifall från minst två tredjedelar av rösterna.
 
 För att omröstning om stadgeändring skall få ske måste kallelsen ha inkluderat denna punkt och den föreslagna ändringen måste ha funnits tillgänglig för alla medlemmar från dess att kallelse gått ut.
+
+\emph{Styrdokumentet:} Styrdokumentet är ett supplement till stadgarna och reglerar informellt \CPU{s} löpande verksamhet samt innehåller kontext, förtydlingar och tolk\-ningar av stadgarna.
+
+\emph{Ändring av styrdokument:} Styrelsen har rätt att på ett styrelsemöte ändra styrdokumentet och väntas använda denna rätt för att hålla styrdokumentet uppdaterat.
+
+\comment{Ändring av styrdokument}{Speciellt så väntas styrelsen uppdatera styrdokumentet med beslut rörande tolkning av stadgar och tagna beslut som långvarigt påverkar \CPU.}
+
+Vid ändring av styrdokumentet skall ett meddelande om att detta har skett finnas tillgänglig för alla medlemmar. 
 
 \section{Upplösning}
 
 Upplösning av \CPU kan bara ske genom att beslut om detta tas på ett ordinarie årsmöte då denna punkt inkluderats i kallelsen. För upplösning krävs minst två tredjedels bifall vid omröstning.
 
-Vid upplösning skall \CPU{s} tillgångar doneras till likasinnade föreningar eller organisationer. Vilka föreningar eller organisationer detta är samt hur tillgångarna skall fördelas mellan dessa bestäms på mötet.
+Vid upplösning skall \CPU{s} tillgångar doneras till likasinnade fören\-ingar eller organisationer. Vilka föreningar eller organisationer detta är samt hur tillgångarna skall fördelas mellan dessa bestäms på mötet.
 
 % And... we're done.
 \end{document}
