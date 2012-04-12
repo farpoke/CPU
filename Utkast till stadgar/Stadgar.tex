@@ -11,13 +11,14 @@
 
 % En hjälpdefinition för att slippa upprepningar av namnet. Namnet skrivs ut fullt första gången i en paragraf varefter förkortningen används.
 \newif\iffullCPU
-\def\CPU{%
+\newcommand\CPU[1][]{%
 	\iffullCPU%
 		\fullCPUfalse%
-		Chalmers Programmeraruppslutning\xspace%
+		Chalmers Programmeraruppslutning#1%
 	\else%
-		CPU\xspace%
+		CPU\ifx&#1&\else:#1\fi%
 	\fi%
+	\xspace%
 }
 
 % \countparagraph påbörjar automatisk numrering av paragrafer i sektionen.
@@ -82,7 +83,7 @@
 
 Föreningens förkortade namn är ``CPU''.
 
-\emph{Syfte:} \CPU{s} huvudsakliga syfte är att medlemmarna skall ha roligt med programmering.
+\emph{Syfte:} \CPU[s] huvudsakliga syfte är att medlemmarna skall ha roligt med programmering.
 
 \emph{Ort:} \CPU existerar på, i och kring Chalmers Tekniska Högskola, Göteborg.
 
@@ -110,7 +111,7 @@ Verksamhets- och räkenskapsår gäller tiden från 1 januari till 31 december.
 
 \comment{Potentiell medlem}{Punkt (c) är med avsikt vagt beskriven för att tillåta lite spelrum. Ett exempel är en student från annan ort som för tillfället studerar på någon av Chalmers sektioner.}
 
-\emph{Aktiv medlem:} För att bli medlem i \CPU krävs att den potentiella medlemmen registrerat sig på \CPU{s} internetforum samt deltagit i en CPU-aktivitet. Den nya medlemmen är en aktiv medlem.
+\emph{Aktiv medlem:} För att bli medlem i \CPU krävs att den potentiella medlemmen registrerat sig på \CPU[s] internetforum samt deltagit i en CPU-aktivitet. Den nya medlemmen är en aktiv medlem.
 
 \emph{CPU-aktivitet:} En ``CPU-aktivitet'' är en aktivitet, sammankomst eller händelse som officiellt arrangerats av eller i sammarbete med \CPU.
 
@@ -120,7 +121,7 @@ En passiv medlem som deltar i en CPU-aktivitet övergår omedelbart till att var
 
 \emph{Utgång ur CPU:} En passiv medlem som varit sådan under ett helt år slutar vara en medlem i \CPU. En person som utgått på detta sätt har rätt att återigen bli en medlem på normalt sätt.
 
-\emph{Uteslutning:} En medlem som (a)~missbrukar sin position inom \CPU, (b)~skadar \CPU eller (c)~skadar \CPU{s} övriga medlemmar, kan bli utesluten ur \CPU. Årsmötet bestämmer om någon skall bli utesluten.
+\emph{Uteslutning:} En medlem som (a)~missbrukar sin position inom \CPU, (b)~skadar \CPU eller (c)~skadar \CPU[s] övriga medlemmar, kan bli utesluten ur \CPU. Årsmötet bestämmer om någon skall bli utesluten.
 
 \comment{Uteslutning}{Uteslutning är en mycket allvarlig handling och bör endast genomföras i allvarliga fall.}
 
@@ -142,7 +143,7 @@ Styrelsen ansvarar för den löpande verksamheten och för verkställandet av å
 
 \section{Årsmöte}
 
-Årsmötet är \CPU{s} högsta beslutande möte och skall hållas en gång under läsperiod 3 varje år per Chalmers kalender.
+Årsmötet är \CPU[s] högsta beslutande möte och skall hållas en gång under läsperiod 3 varje år per Chalmers kalender.
 
 \emph{Kallelse:} För att beslut skall kunna tas på årsmötet måste en kallelse skickats ut minst 14 dagar innan mötet börjar. Kallelse skall skickas till alla medlemmar eller finnas så att alla kan ta del av den.
 
@@ -160,29 +161,29 @@ Tid och plats för årsmötet bestäms av styrelsen, som också ansvarar för at
 
 \emph{Extra årsmöte:} Ett extra årsmöte sammankallas om (a)~styrelsen begär det eller (b)~minst en fjärdedel av de aktiva medlemmarna skriftligen begär det. Alla regler för vanligt årsmöte gäller även för extra årsmöten.
 
-\comment{Extra årsmöte}{Om extra årsmöte sammankallas på begäran av \CPU{s} medlemmar måste årsmötet ta upp de frågor som förorsakat denna begäran.}
+\comment{Extra årsmöte}{Om extra årsmöte sammankallas på begäran av \CPU[s] medlemmar måste årsmötet ta upp de frågor som förorsakat denna begäran.}
 
 \section{Revision}
 
 Vid det ordinarie årsmötet ska välja en revisor och en revisorsuppleant. Dessa får inte sitta i styrelsen.
 
-Revisorn har under verksamhetsåret i uppgift att övervaka styrelsen och \CPU{s} verksamhet för att bedöma huruvida vid årsmöte tagna beslut har verkställts.
+Revisorn har under verksamhetsåret i uppgift att övervaka styrelsen och \CPU[s] verksamhet för att bedöma huruvida vid årsmöte tagna beslut har verkställts.
 
 Vid ordinarie årsmötet skall revisorn för det föregående verksamhetsåret presentera sin revisionsberättelse.
 
 \section{Stadgar och styrdokument}
 
-Detta dokument utgör \CPU{s} stadgar och reglerar tillsammans med styrdokumentet \CPU{s} verksamhet. Stadgarna och styrdokumentet skall anses vara en enhet och inget av dessa dokument skall bedömas utan att ta hänsyn till det andra dokumentet.
+Detta dokument utgör \CPU[s] stadgar och reglerar tillsammans med styrdokumentet \CPU[s] verksamhet. Stadgarna och styrdokumentet skall anses vara en enhet och inget av dessa dokument skall bedömas utan att ta hänsyn till det andra dokumentet.
 
 \emph{Offentlighet:} Stadgar och styrdokument skall finnas officiellt tillgängliga på lämpligt sätt. Vid ändring av någondera skall den nya versionen finnas tillgänglig senast en vecka efter ändring.
 
-\comment{Offentlighet}{Exempelvis via en länk till dessa två dokument på \CPU{s} hemsida.}
+\comment{Offentlighet}{Exempelvis via en länk till dessa två dokument på \CPU[s] hemsida.}
 
 \emph{Stadgeändring:} Dessa stadgar kan ändras genom att ett förslag till ändring röstas igenom vid årsmöte. För att en ändring skall verkställas krävs bifall från minst två tredjedelar av rösterna.
 
 För att omröstning om stadgeändring skall få ske måste kallelsen ha inkluderat denna punkt och den föreslagna ändringen måste ha funnits tillgänglig för alla medlemmar från dess att kallelse gått ut.
 
-\emph{Styrdokumentet:} Styrdokumentet är ett supplement till stadgarna och reglerar informellt \CPU{s} löpande verksamhet samt innehåller kontext, förtydlingar och tolk\-ningar av stadgarna.
+\emph{Styrdokumentet:} Styrdokumentet är ett supplement till stadgarna och reglerar informellt \CPU[s] löpande verksamhet samt innehåller kontext, förtydlingar och tolk\-ningar av stadgarna.
 
 \emph{Ändring av styrdokument:} Styrelsen har rätt att på ett styrelsemöte ändra styrdokumentet och väntas använda denna rätt för att hålla styrdokumentet uppdaterat.
 
@@ -194,7 +195,7 @@ Vid ändring av styrdokumentet skall ett meddelande om att detta har skett finna
 
 Upplösning av \CPU kan bara ske genom att beslut om detta tas på ett ordinarie årsmöte då denna punkt inkluderats i kallelsen. För upplösning krävs minst två tredjedels bifall vid omröstning.
 
-Vid upplösning skall \CPU{s} tillgångar doneras till likasinnade fören\-ingar eller organisationer. Vilka föreningar eller organisationer detta är samt hur tillgångarna skall fördelas mellan dessa bestäms på mötet.
+Vid upplösning skall \CPU[s] tillgångar doneras till likasinnade fören\-ingar eller organisationer. Vilka föreningar eller organisationer detta är samt hur tillgångarna skall fördelas mellan dessa bestäms på mötet.
 
 % And... we're done.
 \end{document}

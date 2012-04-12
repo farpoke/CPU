@@ -14,7 +14,7 @@
 \externaldocument[S-]{Stadgar}
 
 % Definera ett litet hjälpmakro för hänvisning till CPU:s namn.
-\def\CPU{CPU\xspace}
+\newcommand\CPU[1][]{CPU\ifx&#1&\else:#1\fi\xspace}
 
 % Vi vill ha tomrad istället för indentation för att separera paragrafer.
 \setlength{\parindent}{0em}
