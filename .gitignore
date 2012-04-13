@@ -1,0 +1,9 @@
+.DS_Store
+*TSWLatexianTemp*
+Stadgar.pdf
+Stadgar.comments
+Stadgar-Kommentarer.pdf
+Styrdokument.pdf
+*.aux
+*.log
+*.synctex.gz
